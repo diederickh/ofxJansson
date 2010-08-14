@@ -1,0 +1,11 @@
+<install>
+	<name>ofxJansson</name>
+	<version>0.01</version>
+	<author>Diederick Huijbers</author>
+	<url></url>
+	<add>
+		<include>
+			<path>../../../addons_diederick/ofxJansson/src/lib/jansson/</path>
+		</include>
+	</add>
+</install>
