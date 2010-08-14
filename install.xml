@@ -5,6 +5,8 @@
 	<url></url>
 	<add>
 		<include>
+		
+			<path>..\..\..\addons_diederick\ofxJansson\src</path>
 			<path>../../../addons_diederick/ofxJansson/src/lib/jansson/</path>
 		</include>
 	</add>
