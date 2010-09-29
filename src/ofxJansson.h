@@ -6,13 +6,13 @@
 #include <iostream>
 
 // uncomment this to see error while parsing JSON
-//#define DEBUG_JANSSON
+#define DEBUG_JANSSON
 
 
-/** 
+/**
  * Tiny wrapper for jansson json parser.
- * 
- * @url http://www.digip.org/jansson/ 
+ *
+ * @url http://www.digip.org/jansson/
  *
  */
 using namespace std;
