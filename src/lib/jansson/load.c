@@ -478,21 +478,25 @@ static int lex_scan_number(lex_t *lex, char c, json_error_t *error)
         }
 
         c = lex_get_save(lex, error);
-        while(isdigit(c))
+        while(isdigit(c))	
             c = lex_get_save(lex, error);
     }
 
     lex_unget_unsave(lex, c);
 
     saved_text = strbuffer_value(&lex->saved_text);
-    value = strtod(saved_text, &end);
+    
+	value = strtod(saved_text, &end);
     assert(end == saved_text + lex->saved_text.length);
-
-    if(errno == ERANGE && value != 0) {
+	
+	/* @todo (Diederick) When reading twitter messages we sometimes get a 
+	   overflow error when it shouldn't give us an overflow!
+	
+    if(errno == ERANGE && value != 0.0) {
         error_set(error, lex, "real number overflow");
-        goto out;
+        goto out; // Diederick 2010.12.26, commented this for the twitterstream.
     }
-
+	*/ 
     lex->token = TOKEN_REAL;
     lex->value.real = value;
     return 0;
